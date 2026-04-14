@@ -18,7 +18,7 @@ class RL_Algorithm:
 
         self.Update(current_state, next_state, action_index, reward)
 
-
+        return action_index, next_state, reward, terminated, truncated
 
     def Update(self, current_state : tuple, next_state : float, action_index : int, reward : float):
         self.updater.Update(self.state_representation, current_state, next_state, action_index, reward)

@@ -7,4 +7,6 @@ class Exploration_Strategy:
         return 0
 
 class Epsilon_Greedy(Exploration_Strategy):
-    pass
+    def __init__(self, epsilon : float):
+        super().__init__()
+        self.epsilon = epsilon
