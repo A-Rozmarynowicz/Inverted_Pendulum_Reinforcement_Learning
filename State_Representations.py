@@ -1,8 +1,7 @@
-
-
-
 class State_Representation:
-    pass
+    def __init__(self, observation_space_cardinality : int):
+        pass
 
 class Q_Table(State_Representation):
-    pass
+
+    def Discretize_Observation(observation, )

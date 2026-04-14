@@ -70,7 +70,7 @@ for episode in range(episodes):
         next_obs, reward, terminated, truncated, _ = env.step(action)
         next_state = discretize(next_obs)
 
-        # Q update
+        # Q update  
         best_next = np.max(q_table[next_state])
         q_table[state + (action_idx,)] += alpha * (
             reward + gamma * best_next - q_table[state + (action_idx,)]
