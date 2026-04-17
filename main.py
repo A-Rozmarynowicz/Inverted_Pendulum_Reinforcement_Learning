@@ -10,24 +10,23 @@ env = gym.make("Pendulum-v1")
 class classic_Q_Learning(RL_Algorithm):
     def __init__(self):
         super().__init__()
-        self.strategy = Epsilon_Greedy(epsilon=0.05)
+        self.strategy = Epsilon_Decay(epsilon = 1.0, epsilon_decay = 0.99995, epsilon_min = 0.05)
         self.updater = Q_Learning(alpha=0.1, gamma=0.99)
 
 QL = classic_Q_Learning()
 
-# =========================
-# Dyskretyzacja stanu
-# =========================
-obs_bins = (12, 12, 12)  # cos(theta), sin(theta), theta_dot
+
+obs_cardinality = (12, 12, 12)  # cos(theta), sin(theta), theta_dot
 obs_space_high = np.array([1.0, 1.0, 8.0])
 obs_space_low = np.array([-1.0, -1.0, -8.0])
 
 n_actions = 9
 action_space = np.linspace(-2, 2, n_actions)
 
-q_table = Q_Table(obs_bins, obs_space_low, obs_space_high, (n_actions, ))
+q_table = Q_Table(obs_cardinality, obs_space_low, obs_space_high, (n_actions, ))
 
-episodes = 150
+episodes = 10000
+
 
 
 for episode in range(episodes):
@@ -49,6 +48,21 @@ for episode in range(episodes):
     QL.Episode_Ended()
 
     if (episode + 1) % 1000 == 0:
-        print(f"Epizod {episode+1}, reward: {total_reward:.2f}")
+        print(f"Epizod {episode+1}, total reward: {total_reward:.2f}, epsilon: {QL.Get_Strategy().Get_Epsilon():.2f}")
 
-print("Trening zakończony!")
+print("Trening zakończony! Total reward: {total_reward:.2f}")
+
+env = gym.make("Pendulum-v1", render_mode="human")
+
+obs, _ = env.reset()
+state = q_table.Observation_To_State(obs)
+strategy = Greedy()
+
+for _ in range(200):
+    action_idx = strategy.Get_Action_Index(q_table, state)
+    action : np.array = np.array(action_space[action_index])
+
+    obs, _, terminated, truncated, _ = env.step(action)
+    state = q_table.Observation_To_State(obs)
+
+env.close()

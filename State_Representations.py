@@ -3,7 +3,8 @@ import numpy as np
 class State_Representation:
     def __init__(self, observation_cardinality : tuple, observation_lower_limits : tuple,
                  observation_upper_limits : tuple, action_cardinality : tuple):
-        pass
+        self.observation_cardinality = observation_cardinality
+        self.action_cardinality = action_cardinality
 
     def Observation_To_State(self, observation : tuple) -> tuple:
         return observation
@@ -16,6 +17,12 @@ class State_Representation:
 
     def Get_Max_Value(self, state : tuple) -> float:
         return 0.0
+
+    def Get_Action_Cardinality(self) -> tuple:
+        return self.action_cardinality
+
+    def Get_Observation_Cardinality(self) -> tuple:
+        return self.observation_cardinality
 
 class Q_Table(State_Representation):
     def __init__(self, observation_cardinality, observation_lower_limits,
