@@ -10,7 +10,7 @@ env = gym.make("Pendulum-v1")
 class classic_Q_Learning(RL_Algorithm):
     def __init__(self):
         super().__init__()
-        self.strategy = Epsilon_Decay(epsilon = 1.0, epsilon_decay = 0.99995, epsilon_min = 0.05)
+        self.strategy = Epsilon_Decay(epsilon = 1.0, epsilon_decay = 0.995, epsilon_min = 0.05)
         self.updater = Q_Learning(alpha=0.1, gamma=0.99)
 
 QL = classic_Q_Learning()
@@ -26,8 +26,6 @@ action_space = np.linspace(-2, 2, n_actions)
 q_table = Q_Table(obs_cardinality, obs_space_low, obs_space_high, (n_actions, ))
 
 episodes = 10000
-
-
 
 for episode in range(episodes):
     obs, _ = env.reset()
@@ -52,17 +50,17 @@ for episode in range(episodes):
 
 print("Trening zakończony! Total reward: {total_reward:.2f}")
 
-env = gym.make("Pendulum-v1", render_mode="human")
+env = gym.make("Pendulum-v1", render_mode = "human")
 
 obs, _ = env.reset()
 state = q_table.Observation_To_State(obs)
 strategy = Greedy()
 
 for _ in range(200):
-    action_idx = strategy.Get_Action_Index(q_table, state)
-    action : np.array = np.array(action_space[action_index])
+    action_idx : int = strategy.Get_Action_Index(q_table, state)
+    action : np.array = np.array(action_space[action_idx])
 
-    obs, _, terminated, truncated, _ = env.step(action)
+    obs, _, terminated, truncated, _ = env.step([action.item()])
     state = q_table.Observation_To_State(obs)
 
 env.close()
