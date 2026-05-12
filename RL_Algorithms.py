@@ -9,7 +9,7 @@ class RL_Algorithm:
         self.updater : Updaters.Updater
 
     def Step(self, state_representation : State_Representation, action_space : np.array, current_state : tuple, environment):
-        action_index : int = self.strategy.Get_Action_Index(state_representation, current_state)
+        action_index : int = self.updater.Select_Action_Index(state_representation=state_representation, current_state=current_state, strategy=self.strategy)
         action : np.array = np.array(action_space[action_index])
 
         next_obs, reward, terminated, truncated, _ = environment.step([action.item()])
@@ -20,7 +20,7 @@ class RL_Algorithm:
         return action_index, next_state, reward, terminated, truncated
 
     def Update(self, state_representation : State_Representation, current_state : tuple, next_state : float, action_index : int, reward : float):
-        self.updater.Update(state_representation, current_state, next_state, action_index, reward)
+        self.updater.Update(self.strategy, current_state, next_state, action_index, reward)
 
     def Episode_Ended(self):
         self.strategy.Episode_Ended()

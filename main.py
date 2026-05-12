@@ -48,7 +48,7 @@ for episode in range(episodes):
     if (episode + 1) % 1000 == 0:
         print(f"Epizod {episode+1}, total reward: {total_reward:.2f}, epsilon: {QL.Get_Strategy().Get_Epsilon():.2f}")
 
-print("Trening zakończony! Total reward: {total_reward:.2f}")
+print(f"Trening zakończony! Total reward: {total_reward:.2f}")
 
 env = gym.make("Pendulum-v1", render_mode = "human")
 
