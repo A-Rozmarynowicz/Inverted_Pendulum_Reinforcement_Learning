@@ -26,6 +26,9 @@ class Q_Learning(Updater):
     def Select_Action_Index(self, state_representation : State_Representation, current_state : int, strategy : Exploration_Strategy) -> int:
         return strategy.Get_Action_Index(state_representation, current_state)
 
+    def __str__(self):
+        return f"Q-Learning: gamma={self.gamma}, alpha={self.alpha}"
+
 class SARSA(Updater):
     def __init__(self, alpha, gamma):
         super().__init__(alpha, gamma)
@@ -47,3 +50,6 @@ class SARSA(Updater):
         if self.next_action == -1:
             return strategy.Get_Action_Index(state_representation, current_state)
         return self.next_action
+
+    def __str__(self):
+        return f"SARSA: gamma={self.gamma}, alpha={self.alpha}"

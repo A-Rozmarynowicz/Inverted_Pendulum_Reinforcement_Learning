@@ -46,3 +46,6 @@ class RL_Algorithm:
 
     def Get_ID(self) -> int:
         return self.ID
+
+    def __str__(self):
+        return str(self.updater) + " | " + str(self.strategy)
