@@ -13,6 +13,9 @@ class Updater:
     def Select_Action_Index(self, state_representation : State_Representation, current_state : int, strategy : Exploration_Strategy) -> int:
         return 0
 
+    def Episode_Ended(self) -> None:
+        pass
+
 class Q_Learning(Updater):
     def Update(self, strategy : Exploration_Strategy,  state_representation : State_Representation, current_state : tuple,
                 next_state : tuple, action_idx : int, reward : float):
@@ -53,3 +56,6 @@ class SARSA(Updater):
 
     def __str__(self):
         return f"SARSA: gamma={self.gamma}, alpha={self.alpha}"
+
+    def Episode_Ended(self):
+        self.next_action = -1
