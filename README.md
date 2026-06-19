@@ -59,7 +59,7 @@ We see that both algorithms performed well.
 
 The most surprising observation was that the best size of action space was 3, where the models could only push the pendulum left with max force, push it right with max force, or do nothing at all.
 
-> For the purpose of the project, a more in-depth analysis of theparameters' impact was conducted; however, we have decided not to share it here.
+For the purpose of the project, a more in-depth analysis of theparameters' impact was conducted; however, we have decided not to share it here.
 
 
 ## Technologies used
