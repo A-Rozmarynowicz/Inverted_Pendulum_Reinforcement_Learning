@@ -1,6 +1,6 @@
-from State_Representations import State_Representation
-import Strategies
-import Updaters
+from Base_Modules.State_Representations import State_Representation
+import Base_Modules.Strategies as Strategies
+import Base_Modules.Updaters as Updaters
 import numpy as np
 
 class RL_Algorithm:

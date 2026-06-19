@@ -1,9 +1,9 @@
 import gymnasium as gym
 import numpy as np
-from RL_Algorithms import RL_Algorithm
-from Updaters import *
-from Strategies import *
-from State_Representations import *
+from Base_Modules.RL_Algorithms import RL_Algorithm
+from Base_Modules.Updaters import *
+from Base_Modules.Strategies import *
+from Base_Modules.State_Representations import *
 
 env = gym.make("Pendulum-v1")
 
