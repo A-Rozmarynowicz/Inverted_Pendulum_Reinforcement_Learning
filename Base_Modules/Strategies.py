@@ -1,5 +1,5 @@
 import numpy as np
-from State_Representations import State_Representation
+from Base_Modules.State_Representations import State_Representation
 
 class Exploration_Strategy:
     def __init__(self):

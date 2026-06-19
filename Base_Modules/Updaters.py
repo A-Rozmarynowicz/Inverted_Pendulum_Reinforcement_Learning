@@ -1,6 +1,6 @@
 import numpy as np
-from State_Representations import State_Representation
-from Strategies import Exploration_Strategy
+from Base_Modules.State_Representations import State_Representation
+from Base_Modules.Strategies import Exploration_Strategy
 
 class Updater:
     def __init__(self, alpha : float, gamma : float):
