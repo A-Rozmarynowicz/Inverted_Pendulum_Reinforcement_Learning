@@ -19,7 +19,12 @@ Development time: from 04.2026 to 06.2026
     - Q-table with state discretization.
 - Allowed for combining various algorithms, strategies, and state representations in a flexible way.
 - Trained models on the inverted pendulum control problem.
-- Tested and analyzed parameters' impact on effectiveness.
+- Tested and analyzed parameters' impact on effectiveness:
+    - discount factor,
+    - learning rate,
+    - epsilon decay,
+    - action space size,
+    - observation space size.
 
 ## Outcome
 Having compared Q-Learning's and SARSA's effectiveness in regard to parameters (learning rate, discount factor, epsilon decay), their outcome is rather similar in this environment. Figure 1 shows how rewards change with respect to episodes passed, for the best parameter configuration:
@@ -38,12 +43,17 @@ total number of episodes = 8000 </br>
 
 We see that both algorithms performed well.
 
+The most suprising observation was that the best size of action space was 3, where the models could only push the pendulum left with max force, push it right with max force, or do nothing at all.
+
 > For the purpose of the project, a more in-depth analysis of parameters' impact was conducted; however we have decided not to share it here.
 
 ## Visualization
 Below you can see a GIF showing a pendulum controled by a trained Q-Learning model:
 
-
+<p align="center">
+<img src="./Images/Example_GIF.gif" alt="./Images/Example_GIF.gif" width="75%"><br>
+<em>Figure 2: Q-Learning model controlling the pendulum.</em>
+</p>
 
 A quick presentation of the training process along with a few more examples can be seen in [this YouTube video](https://www.youtube.com/watch?v=yqmj4zeWN_Q).
 
