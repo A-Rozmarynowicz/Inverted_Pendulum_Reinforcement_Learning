@@ -69,7 +69,7 @@ For the purpose of the project, a more in-depth analysis of theparameters' impac
 
 ## Project structure
 - main.ipynb file contains an example use of the framework: pendulum control training.
-- Base_Modules/RL_Algoritms.py contains the base class that, using composition, manages other modules listed below
+- Base_Modules/RL_Algorithms.py contains the base class that, using composition, manages other modules listed below
 - Base_Modules/Updaters.py contains Q-Learning and SARSA algorithms classes.
 - Base_Modules/Strategies.py contains strategy modules like epsilon-greedy, greedy, etc.
 - Base_Modules/State_Representations.py contains modules for state discretization and representation: in this example, it is a Q-table.
