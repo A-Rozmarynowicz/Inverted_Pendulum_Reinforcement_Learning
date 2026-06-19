@@ -10,10 +10,19 @@ Authors: Selim Mucharski, Arkadiusz Rozmarynowicz
 Development time: from 04.2026 to 06.2026
 
 ## Table of contents
- - sd
+
 
 ## General information
--
+ - Implemented:
+    - Q-Learning and SARSA algorithms,
+    - epsilon-greedy strategy,
+    - Q-table with state discretization.
+- Allowed for combining various algorithms, strategies, and state representations in a flexible way.
+- Trained models on the inverted pendulum control problem.
+- Tested and analyzed parameters' impact on effectiveness.
+
+## Outcome
+Having compared Q-Learning's and SARSA's effectiveness in regard to parameters (learning rate, discount factor, epsilon decay), their outcome is rather similar in this environment.
 
 ## Technologies used
 - Python
