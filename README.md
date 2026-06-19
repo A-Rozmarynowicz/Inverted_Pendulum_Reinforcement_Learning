@@ -10,7 +10,11 @@ Authors: Selim Mucharski, Arkadiusz Rozmarynowicz
 Development time: from 04.2026 to 06.2026
 
 ## Table of contents
-
+* [General information](#general-information)
+* [Visualization](#visualization)
+* [Outcome](#outcome)
+* [Technologies used](#technologies-used)
+* [Setup](#setup)
 
 ## General information
  - Implemented:
@@ -26,8 +30,18 @@ Development time: from 04.2026 to 06.2026
     - action space size,
     - observation space size.
 
+## Visualization
+Below you can see a GIF showing a pendulum controlled by a trained Q-Learning model:
+
+<p align="center">
+<img src="./Images/Example_GIF.gif" alt="./Images/Example_GIF.gif" width="65%"><br>
+<em>Figure 2: Q-Learning model controlling the pendulum.</em>
+</p>
+
+A quick presentation of the training process, along with a few more examples, can be seen in [this YouTube video](https://www.youtube.com/watch?v=yqmj4zeWN_Q).
+
 ## Outcome
-Having compared Q-Learning's and SARSA's effectiveness in regard to parameters (learning rate, discount factor, epsilon decay), their outcome is rather similar in this environment. Figure 1 shows how rewards change with respect to episodes passed, for the best parameter configuration:
+Having compared Q-Learning's and SARSA's effectiveness in regard to parameters (learning rate, discount factor, epsilon decay), their outcomes are rather similar in this environment. Figure 1 shows how rewards change with respect to episodes passed, for the best parameter configuration:
 
 <p align="center">
 learning rate (alpha) = 0.05 </br>
@@ -43,19 +57,11 @@ total number of episodes = 8000 </br>
 
 We see that both algorithms performed well.
 
-The most suprising observation was that the best size of action space was 3, where the models could only push the pendulum left with max force, push it right with max force, or do nothing at all.
+The most surprising observation was that the best size of action space was 3, where the models could only push the pendulum left with max force, push it right with max force, or do nothing at all.
 
-> For the purpose of the project, a more in-depth analysis of parameters' impact was conducted; however we have decided not to share it here.
+> For the purpose of the project, a more in-depth analysis of theparameters' impact was conducted; however, we have decided not to share it here.
 
-## Visualization
-Below you can see a GIF showing a pendulum controled by a trained Q-Learning model:
 
-<p align="center">
-<img src="./Images/Example_GIF.gif" alt="./Images/Example_GIF.gif" width="75%"><br>
-<em>Figure 2: Q-Learning model controlling the pendulum.</em>
-</p>
-
-A quick presentation of the training process along with a few more examples can be seen in [this YouTube video](https://www.youtube.com/watch?v=yqmj4zeWN_Q).
 
 ## Technologies used
 - Python
@@ -64,7 +70,7 @@ A quick presentation of the training process along with a few more examples can 
 
 ## Setup
 
-Create python3 virtual enviroment:
+Create python3 virtual environment:
 > python3 -m venv .venv
 
 Install packages:
