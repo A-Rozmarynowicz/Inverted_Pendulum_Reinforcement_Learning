@@ -62,11 +62,17 @@ The most surprising observation was that the best size of action space was 3, wh
 > For the purpose of the project, a more in-depth analysis of theparameters' impact was conducted; however, we have decided not to share it here.
 
 
-
 ## Technologies used
 - Python
 - numpy
 - pandas
+
+## Project structure
+- main.ipynb file contains an example use of the framework: pendulum control training.
+- Base_Modules/RL_Algoritms.py contains the base class that, using composition, manages other modules listed below
+- Base_Modules/Updaters.py contains Q-Learning and SARSA algorithms classes.
+- Base_Modules/Strategies.py contains strategy modules like epsilon-greedy, greedy, etc.
+- Base_Modules/State_Representations.py contains modules for state discretization and representation: in this example, it is a Q-table.
 
 ## Setup
 
